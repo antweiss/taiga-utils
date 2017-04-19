@@ -5,6 +5,7 @@ parser = argparse.ArgumentParser(description='Create Taiga issue')
 parser.add_argument('--user', dest='user')
 parser.add_argument('--passwd', dest='passwd')
 parser.add_argument('--project', dest='project')
+parser.add_argument('--message', dest='message')
 
 args = parser.parse_args()
 
@@ -21,7 +22,7 @@ for user in api.users.list(project=proj.id):
 		print "qa_user will be" + str( user.id)
 		qa_user = user.id
 
-issue = proj.add_issue("New env for testing",
+issue = proj.add_issue(args.message,
 				proj.priorities.get(name='High').id,
 				proj.issue_statuses.get(name='New').id,
 				proj.issue_types.get(name='EnvVerification').id,
