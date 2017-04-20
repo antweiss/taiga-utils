@@ -19,7 +19,7 @@ qa_user = ''
 
 for user in api.users.list(project=proj.id):
 	if user.username == 'Tobiko':
-		print "qa_user will be" + str( user.id)
+		print ("qa_user will be {userid}".format(userid=user.id))
 		qa_user = user.id
 
 issue = proj.add_issue(args.message,

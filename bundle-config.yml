@@ -1,0 +1,23 @@
+---
+cog_bundle_version: 4
+
+name: taiga
+description: touch tmp files
+version: 0.0.1
+docker:
+  image: otomato/cog-taiga
+  tag: "0.1"
+permissions:
+  - taiga:create
+commands:
+  create:
+    description: create
+    executable: /home/bundle/create.sh
+    arguments: "<dir>"
+    rules:
+      - allow
+  ps:
+    description: ps cwd
+    executable: /bin/ps
+    rules:
+      - allow
